@@ -1,0 +1,16 @@
+{
+  "name": "nakoufun",
+  "version": "1.0.0",
+  "description": "My mrua site",
+  "license": "ISC",
+  "author": "hotkota",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nunjucks": "^3.2.4"
+  }
+}

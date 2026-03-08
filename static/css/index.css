@@ -1,0 +1,135 @@
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+        /* Адаптивная сетка */
+.grid-container {
+    display: grid;
+    gap: 20px;
+    padding: 10px;
+}
+
+        /* Разное количество колонок в зависимости от ширины экрана */
+@media (min-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(4, 1fr); /* 4 колонки на больших экранах */
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки на средних экранах */
+    }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на планшетах */
+    }
+}
+
+@media (max-width: 575px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 колонка на мобильных */
+    }
+}
+
+/* Стили для поста */
+.post {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+}
+
+.post:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.post:hover .post-image {
+    transform: scale(1.05);
+}
+
+.post-content {
+    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to top, rgba(255,255,255,0.95), white);
+}
+
+.post-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.post-text {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 8px;
+    flex: 1;
+}
+
+/* Анимация загрузки */
+.post {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Информация о количестве колонок */
+.grid-info {
+    text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.columns-count {
+    font-weight: bold;
+    color: #007bff;
+}
+
+div a {
+    text-decoration: none;
+}

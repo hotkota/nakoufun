@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "base.njk" %}
+
+{% block title %} nakou - Главная {% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="/css/index.css">{% endblock %}
+
+{% block content %}
+    <div class="grid-container">
+        {% for post in posts %}
+            {% if post.id != 0 %}
+                <a class="post-link" href="/post/{{ post.id }}">
+                    <div class="post">
+                        <div class="post-content">
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-text">{{ post.content }}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

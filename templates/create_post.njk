@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+
+{% block title %} nakou - Создание поста {% endblock %}
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+    {% if errors %}
+        <div style="color: red;">
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error.msg }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <h2>Все новые созданые посты будут видны до перезагрузки сервера</h2>
+
+    <form action="/create-post" method="POST">
+        <div class="form-group">
+            <label for="title">Название:</label>
+            <input type="text" id="title" name="title" value="{{ oldInput.title or ""}}" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Текст:</label>
+            <textarea id="content" name="content" rows="10" cols="50">{{ oldInput.content or "" }}</textarea>
+        </div>
+        <button type="submit">Создать</button>
+    </form>
+
+    {% if data %}
+        <div class="result">
+            <h3>Пост создан</h3>
+            <p><strong>ID:</strong><a href="{{ url_for("post", post_id=data.id )}}"> {{ data.id }}</a></p>
+            <p><strong>Название:</strong> {{ data.title }}</p>
+            <p><strong>Содержание:</strong> {{ data.content }}</p>
+        </div>
+    {% endif %}
+{% endblock %}
